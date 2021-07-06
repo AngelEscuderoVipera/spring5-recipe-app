@@ -117,8 +117,17 @@ public class Recipe {
         return notes;
     }
 
+    //para hacer asociacion bidireccional
     public void setNotes(Notes notes) {
         this.notes = notes;
+        notes.setRecipe(this);
+    }
+
+    //para hacer asociacion bidireccional
+    public Recipe addIngredient(Ingredient ingredient){
+        ingredient.setRecipe(this);
+        this.ingredients.add(ingredient);
+        return this;
     }
 
     public Set<Ingredient> getIngredients() {
